@@ -26,13 +26,22 @@
           <ul class="dropdown-menu">
             <li><a href="#"><span class="icon"><i class="fa fa-fw m-r-5 fa-user-circle-o"></i></span> Profile</a></li>
             <li><a href="#"><span class="icon"><i class="fa fa-fw m-r-5 fa-bell"></i></span> Notifications</a></li>
-            <li><a href="#"><span class="icon"><i class="fa fa-fw m-r-5 fa-cog"></i></span> Manage</a></li>
+            <li><a href="{{route('manage.dashboard')}}"><span class="icon"><i class="fa fa-fw m-r-5 fa-cog"></i></span> Manage</a></li>
             <li class="separator"></li>
-            <li><a href="{{route('logout')}}" onclick"event.preventDefault();>
-                document.getElemetById('logout-form').submit();">
-              <span class="icon"><i class="fa fa-fw m-r-5 fa-sign-out"></i></span> Logout</a>
-              @include('_includes.forms.logout')
-            </li>
+            <li>
+              <a href="{{route('logout')}}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                  <span class="icon">
+                    <i class="fa fa-fw fa-sign-out m-r-5"></i>
+                  </span>
+                  Logout
+                </a>
+                @include('_includes.forms.logout')
+                {{-- <a href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">Logout</a>
+
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form>
+<form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">{{ csrf_field() }}</form> --}}
+
+             </li>
           </ul>
         </button>
       @endif
